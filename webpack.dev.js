@@ -28,5 +28,9 @@ module.exports = {
 			cleanStaleWebpackAssets: true, // Automatically remove all unused webpack assets on rebuild
 			protectWebpackAssets: false
 		})
-	]
+	],
+	output: {
+		libraryTarget: 'var',
+		library: 'App'
+	}
 };
