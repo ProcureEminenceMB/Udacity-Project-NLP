@@ -15,9 +15,6 @@ let textapi = new aylien({
 	application_key: process.env.API_KEY
 });
 
-console.log( `API ID: ${process.env.API_ID}` );
-console.log( `API KEY: ${process.env.API_KEY}` );
-
 console.log(__dirname)
 
 app.get('/', function (req, res) {
