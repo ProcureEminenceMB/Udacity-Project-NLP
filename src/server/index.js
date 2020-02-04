@@ -34,5 +34,5 @@ app.get( '/test', function ( req, res ) {
 
 app.get( '/process', function ( request, response ) {
 	console.log( 'GET request sent to /process path with the following content:' );
-	console.log( request.body );
+	console.log( request.originalUrl );
 });
