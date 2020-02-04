@@ -28,5 +28,11 @@ app.listen( port, function () {
 });
 
 app.get( '/test', function ( req, res ) {
+	console.log( 'GET request on /test path.' );
 	res.send( mockAPIResponse );
+});
+
+app.get( '/process', function ( request, response ) {
+	console.log( 'GET request sent to /process path with the following content:' );
+	console.log( request.body );
 });
