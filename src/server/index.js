@@ -27,12 +27,8 @@ app.listen( port, function () {
 	console.log( `NLP app is listening on port ${port}.` );
 });
 
-app.get( '/test', function ( req, res ) {
-	console.log( 'GET request on /test path.' );
-	res.send( mockAPIResponse );
-});
-
-app.get( '/process', function ( request, response ) {
+app.post( '/process', function ( request, response ) {
 	console.log( 'GET request sent to /process path with the following content:' );
 	console.log( request.originalUrl );
+	response.send( mockAPIResponse );
 });
