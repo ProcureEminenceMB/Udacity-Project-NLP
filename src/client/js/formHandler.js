@@ -1,19 +1,27 @@
-function handleSubmit( event ) {
+const handleSubmit = ( event ) => {
 
-	event.preventDefault();
+	event.preventDefault(); // Prevent page refresh caused by form submission
 
-	// check what text was put into the form field
-	let formText = document.getElementById( 'name' ).value;
-	checkForName( formText );
-
-	console.log( '::: Form Submitted :::' );
+	// Get form data
+	let formText = document.getElementById( 'URL' ).value;
 	
-	fetch( 'http://localhost:8080/test' )
-		.then( res => res.json() )
-		.then( function( res ) {
-			document.getElementById( 'results' ).innerHTML = res.message;
-		});
+	fetch( '/process', {
+		method: 'POST',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify( {
+			'url': formText
+		} )
+	})
+	.then( (response) => {
+		return response.json();
+	} )
+	.then( (data) => {
+		document.getElementById( 'results' ).innerHTML = data.message;
+	});
 
-}
+};
 
 export { handleSubmit };
