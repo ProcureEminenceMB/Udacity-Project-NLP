@@ -3,12 +3,17 @@ dotenv.config();
 
 var path = require( 'path' );
 const express = require( 'express' );
+const bodyParser = require( 'body-parser' );
+const cors = require( 'cors' );
 const mockAPIResponse = require( './mockAPI.js' );
 let aylien = require( 'aylien_textapi' );
 
 const app = express();
 
 app.use( express.static( 'dist' ) );
+app.use( bodyParser.urlencoded({ extended: false }) );
+app.use( bodyParser.json() );
+app.use( cors() );
 
 let textapi = new aylien({
 	application_id: process.env.API_ID,
@@ -28,7 +33,7 @@ app.listen( port, function () {
 });
 
 app.post( '/process', function ( request, response ) {
-	console.log( 'GET request sent to /process path with the following content:' );
-	console.log( request.originalUrl );
+	console.log( 'POST request sent to /process path with the following content:' );
+	console.log( request.body );
 	response.send( mockAPIResponse );
 });
