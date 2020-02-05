@@ -1,12 +1,46 @@
-form {
+$elementSpacing: 40px;
+
+#articleURLForm {
+
 	border: 1px solid #545454;
 	border-radius: 3px;
 	padding: 40px;
+	text-align: center;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.35);
+	background-color: rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+
+	input {
+
+		padding: 5px 20px;
+		width: 100%;
+		height: 50px;
+		line-height: 16px;
+		border: 1px solid rgba(0, 0, 0, 0.35);
+		color: #ffffff;
+		background-color: rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05),0px 2px 1px rgba(0, 0, 0, 0.15) inset;
+
+		&[type="submit"]{
+			max-width: 200px;
+			font-weight: bold;
+			color: #fff;
+			background-color: #049fdb;
+			border-radius: 3px;
+			border: none;
+			cursor: pointer;
+			box-shadow: 0 0 1px rgba( 0, 0, 0, 0.15 );
+		}
+
+		&:nth-child(1){
+			margin-bottom: $elementSpacing;
+		}
+
+	}
+
 }
 
-input {
-	padding: 5px 20px;
-	width: 100%;
-	line-height: 16px;
-	margin: 10px 0;
+#Results{
+	margin-top: 30px;
 }

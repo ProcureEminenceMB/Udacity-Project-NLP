@@ -2,13 +2,23 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #cccccc;
+	background-color: #252525;
 }
 
 main {
 	flex: 2;
+
+	section{
+		&:last-child{
+			flex-direction: column;
+		}
+	}
 }
 
 section {
+	display: flex;
 	max-width: 800px;
 	margin: 50px auto;
 }
