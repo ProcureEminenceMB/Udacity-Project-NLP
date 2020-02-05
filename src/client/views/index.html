@@ -32,6 +32,17 @@
 			<p>&copy; 2020 Michael Bigelow</p>
 		</footer>
 
+		<script>
+			// Make sure service workers are supported in user's browser
+			if( 'serviceWorker' in navigator ){
+
+				// Register the service worker after the page loads
+				window.addEventListener( 'load', () => {
+					navigator.serviceWorker.register( '/service-worker.js' );
+				});
+
+			}
+		</script>
 	</body>
 
 </html>
