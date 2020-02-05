@@ -33,17 +33,27 @@ app.listen( port, function () {
 
 app.post( '/process', function ( request, response ) {
 	console.log( 'POST request sent to /process path with the following content:' );
-	console.log( request.body.url );
+	console.log( request.body );
 
-	response.send( {
-		"language":"en",
-		"categories":[
-		  {
-			"label":"economy, business and finance - computing and information technology",
-			"code":"04003000",
-			"confidence":1
-		  }
-		],
-		"text":"When Microsoft announced its wrenching..."
-	  } );
+	const urlToProcess = request.body.url;
+
+	textapi.classify( {
+			'url': urlToProcess
+		}, function ( apiError, apiResponse ) {
+
+			if( apiError === null ){
+
+				console.log( apiResponse );
+				response.send( apiResponse );
+				
+
+			}else{
+
+				console.log( apiError );
+				response.send( apiError );
+
+			}
+
+		});
+
 });
