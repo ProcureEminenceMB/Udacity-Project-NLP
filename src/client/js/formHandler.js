@@ -4,6 +4,8 @@ const handleSubmit = ( event ) => {
 
 	// Get form data
 	let formText = document.getElementById( 'URL' ).value;
+
+	document.getElementById( 'Results' ).innerHTML = 'Processing URL...';
 	
 	fetch( '/process', {
 		method: 'POST',
