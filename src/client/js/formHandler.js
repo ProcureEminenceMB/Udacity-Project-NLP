@@ -19,7 +19,7 @@ const handleSubmit = ( event ) => {
 		return response.json();
 	} )
 	.then( (data) => {
-		document.getElementById( 'results' ).innerHTML = data.categories[0].label;
+		document.getElementById( 'Results' ).innerHTML = data.categories[0].label;
 	});
 
 };
