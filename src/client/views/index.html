@@ -9,27 +9,27 @@
 	<body>
 
 		<header>
-			<div id="AppName">
-				<h1>Article Classifier</h1>
-			</div>
+			<h1 id="AppName">Article Classifier</h1 id="AppName">
 		</header>
 
 		<main>
 			<section>
-				<form class="" onsubmit="return App.handleSubmit( event )">
-					<input id="URL" type="text" name="input" value="" placeholder="URL">
+				<form id="articleURLForm" onsubmit="return App.handleSubmit( event )" autocomplete="off">
+					<input id="URL" type="text" name="input" value="" placeholder="Enter Article URL">
 					<input type="submit" name="" value="Submit" onclick="return App.handleSubmit( event )" onsubmit="return App.handleSubmit( event )">
 				</form>
-			<section>
+			</section>
 
 			<section>
-				<strong>Suggested Article Classification:</strong>
+				<div>
+					<strong>Suggested Article Classification:</strong>
+				</div>
 				<div id="Results"></div>
 			</section>
 		</main>
 
 		<footer>
-			<p>This is a footer</p>
+			<p>&copy; 2020 Michael Bigelow</p>
 		</footer>
 
 	</body>
