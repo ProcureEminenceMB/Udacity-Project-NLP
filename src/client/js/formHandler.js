@@ -19,7 +19,21 @@ const handleSubmit = ( event ) => {
 		return response.json();
 	} )
 	.then( (data) => {
-		document.getElementById( 'Results' ).innerHTML = data.categories[0].label;
+		
+		let resultText = "";
+
+		if( data.categories ){
+
+			resultText = data.categories[0].label;
+
+		}else{
+
+			resultText = "Sorry, we could not accurately classify the text found at: <br>" + formText;
+
+		}
+
+		document.getElementById( 'Results' ).innerHTML = resultText;
+
 	});
 
 };
