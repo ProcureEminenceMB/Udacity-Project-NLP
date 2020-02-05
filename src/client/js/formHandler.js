@@ -38,12 +38,20 @@ const handleSubmit = ( event ) => {
 	.then( (data) => {
 		
 		let resultText = "";
+		let validResult = false;
 
 		if( data.categories ){
 
-			resultText = data.categories[0].label;
+			if( data.categories.length > 0 ){
 
-		}else{
+				resultText = data.categories[0].label;
+				validResult = true;
+
+			}
+
+		}
+		
+		if( !validResult ){
 
 			resultText = "Sorry, we could not accurately classify the text found at: " + formText;
 
