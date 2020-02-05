@@ -5,6 +5,13 @@ const handleSubmit = ( event ) => {
 	// Get form data
 	let formText = document.getElementById( 'URL' ).value;
 
+	if( !validURL( formText ) ){
+
+		alert( "Please enter a valid, full URL address.\nExample: https://www.google.com/" );
+		return false;
+
+	}
+
 	document.getElementById( 'Results' ).innerHTML = 'Processing URL...';
 	
 	fetch( '/process', {
@@ -30,13 +37,32 @@ const handleSubmit = ( event ) => {
 
 		}else{
 
-			resultText = "Sorry, we could not accurately classify the text found at: <br>" + formText;
+			resultText = "Sorry, we could not accurately classify the text found at: " + formText;
 
 		}
 
 		document.getElementById( 'Results' ).innerHTML = resultText;
 
 	});
+
+};
+
+const validURL = ( url ) => {
+
+	let valid = false;
+
+	try{
+
+		let urlObj = new URL( url );
+		valid = true;
+
+	}catch( error ){
+
+		console.log( error.message );
+
+	}
+
+	return valid;
 
 };
 
