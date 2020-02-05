@@ -49,14 +49,13 @@ app.post( '/process', function ( request, response ) {
 
 			if( apiError === null ){
 
-				console.log( apiResponse.categories[0].label );
+				console.log( apiResponse );
 				response.send( apiResponse );
 				
 
 			}else{
 
-				console.log( apiError );
-				response.send( apiError );
+				response.send( { 'error': 'Could not find and/or process URL.' } );
 
 			}
 
