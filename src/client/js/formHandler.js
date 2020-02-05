@@ -1,3 +1,5 @@
+import { validURL } from './inputValidation';
+
 const handleSubmit = ( event ) => {
 
 	event.preventDefault(); // Prevent page refresh caused by form submission
@@ -44,25 +46,6 @@ const handleSubmit = ( event ) => {
 		document.getElementById( 'Results' ).innerHTML = resultText;
 
 	});
-
-};
-
-const validURL = ( url ) => {
-
-	let valid = false;
-
-	try{
-
-		let urlObj = new URL( url );
-		valid = true;
-
-	}catch( error ){
-
-		console.log( error.message );
-
-	}
-
-	return valid;
 
 };
 
