@@ -5,7 +5,7 @@ const handleSubmit = ( event ) => {
 	event.preventDefault(); // Prevent page refresh caused by form submission
 
 	// Get form data
-	let formText = document.getElementById( 'URL' ).value;
+	let formText = ( document.getElementById( 'URL' ) ) ? document.getElementById( 'URL' ).value: "";
 
 	if( !validURL( formText ) ){
 
